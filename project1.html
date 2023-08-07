@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shopping Web Page</title>
+
+<style>
+
+body{
+ font-family: Arial, sans-serif;
+
+margin: 0;
+
+padding: 20px; 
+
+display: flex; 
+
+justify-content: center;
+
+align-items: center;
+
+min-height: 100vh; 
+
+background-color: #f0f0f0;
+
+}
+
+.bundle {
+
+max-width: 400px; /* Set the desired width here */
+
+margin-top:-10px;
+
+}
+
+.bundle-title {
+
+font-size: 20px;
+
+font-weight: bold; 
+
+text-align: center;
+
+margin-bottom: 10px;
+}
+
+.pair-box {
+
+border: 2px solid #4CAF50;
+
+padding: 10px;
+
+margin-bottom: 10px;
+}
+
+.add-to-cart { display: block;
+
+width: 100%;
+padding: 10px;
+color: #fff; 
+font-size: 16px;
+background-color: #4CAF50; 
+font-weight: bold; t
+ext-align: center; 
+cursor: pointer;
+border: none; 
+margin-top: 20px;
+
+}
+
+.hidden { display: none;
+
+}
+
+.option {
+
+display: flex; 
+align-items: center;
+
+justify-content: space-between; margin-bottom: 5px;
+}
+
+.powered-by {
+
+text-align: right;
+
+margin-top: 10px;
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="bundle">
+
+<div class="bundle-title">
+
+Bundle & Save
+
+</div>
+
+<div class="pair-box"> <input type="radio" name="bundle" value="1" checked>
+
+<label for="bundle1">1 Pair</label><br> DKK 195.00<span style="margin-left: 180px;">50% OFF</span>
+
+<div class="option hidden" id="option1">
+<label for="size1">Size:</label>
+<select id="size1">
+
+<option value="5">S</option> 
+<option value="M">M</option>
+<option value="L">L</option>
+
+</select> <label for="color1" style="margin-left: 10px;">Color: </label>
+
+<select id-"color1">
+
+<option value="Red">Red</option>
+
+<option value="Blue">Blue</option> <option value="Green">Green</option>
+
+</select> </div>
+
+</div>
+
+<div class="pair-box">
+<input type="radio" name="bundle" value="2"> <label for="bundle2">2 Pair - Most Popular</label><br>
+
+DKK 345.00<span style="margin-left: 180px;">40% OFF</span> <div class="option hidden" id="option2">
+
+<label for="size2">Size:</label>
+
+<select id="size2">
+
+<option value="5">S</option> 
+<option value="M">M</option>
+<option value="L">L</option>
+
+</select>
+
+<label for="color2" style="margin-left: 10px; ">Color:</label> <select id="color2">
+
+<option value="Red">Red</option> <option value="Blue">Blue</option>
+
+<option value="Green">Green</option> 
+</select>
+
+</div>
+
+</div>
+<div class="pair-box">
+
+<input type="radio" name="bundle" value="3"> <label for="bundle3">3 Pair</label><br>
+
+DKK 528.00<span style="margin-left: 180px;">60% OFF</span> <div class="option hidden" id="option3"> <label for="size3">Size:</label>
+
+<select id="size3">
+
+<option value="5">S</option>
+
+<option value="M">M</option> <option value="L">L</option>
+
+</select>
+
+<label for="color3" style="margin-left: 10px; ">Color:</label> <select id="color3">
+
+<option value="Red">Red</option>
+
+<option value="Blue">Blue</option>
+
+<option value="Green">Green</option> 
+</select>
+
+</div>
+
+</div>
+
+<div>
+
+<span>Free 2 Day Shipping</span> <span style="margin-left: 100px;">Total: DKK 360.00</span>
+
+</div>
+
+<button class="add-to-cart">+ Add to Cart</button>
+
+<div class="powered-by">&copy; Powered by Pumper</div>
+
+</div> <script>
+
+const addToCartButton document.querySelector('.add-to-cart'); const pairOptions- document.querySelectorAll('input[name="bundle"]'); const sizeColorOptions=document.querySelector('.option');
+
+addToCartButton.addEventListener('click', () => ( const selectedBundle document.querySelector('input[name="bundle"]:checked').value;
+
+let selectedSize = null; let selectedColor = null;
+
+if (selectedBundle - "1") (
+
+selectedSize- document.getElementById('size1').value; selectedColor document.getElementById('color1').value;
+
+} else if (selectedBundle --- "2") (
+
+selectedSize - document.getElementById('size2').value; selectedColor - document.getElementById('color2').value; } else (selectedBundle -** "3") {
+
+selectedSize - document.getElementById('size3').value;
+
+selected Color - document.getElementById('color3').value;
+}
+alert('Added to cart: \nBundle: $(selectedBundle) Pair(s) \nSize: $(selectedSize)\nColor: ${selectedColor)");
+
+});
+
+pairOptions.forEach((option) => {
+
+option.addEventListener('change', () => { sizeColorOptions.forEach((sizeColorOption) => {
+
+if (option.checked) {
+
+sizeColorOption.classList.add('visible');
+
+} else {
+
+sizeColorOption.classList.remove('visible');
+
+}
+
+}); });
+
+});
+
+</script>
+
+</body>
+
+</html>
